@@ -1,0 +1,57 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    max-width: 600px;
+    align-items: center;
+}
+
+.container-1{
+    width: 90vw;
+    max-width: 600px;
+    align-items: center;
+}
+section{
+    max-width: 80vw;    
+    align-self: center;
+    
+}
+
+.form-control, .input-group-text {
+    font-size: 14px;
+}
+
+.btn{
+    max-width: fit-content;
+    align-self: center;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+#stockTable{
+    width: 80vw;
+    max-width: 580px;
+    align-items: center;
+}
+#stockForm{
+    width: 90vw;
+    max-width: 600px;
+    align-items: center;
+}
+.footer{
+    width: 90vw;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+th{
+    text-align: center;
+}
