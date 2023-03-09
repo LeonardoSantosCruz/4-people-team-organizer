@@ -1,4 +1,4 @@
-let teams = [[]]
+let teams = [[João]]
 
 
 // console.log (teams[0][0])
@@ -51,7 +51,7 @@ let renderTable =()=>{
         
             <td>${player}</td>
             <td style="width: fit-content;">
-                <button class="btn btn-info btn-sm" onclick="showEditForm()">Editar</button>
+                <button class="btn btn-info btn-sm" onclick="showEditForm(${team.indexOf(player)},${teams.indexOf(team)})">Editar</button>
                 
             </td>
         </tr>`
@@ -63,3 +63,9 @@ let renderTable =()=>{
     
 }
 // renderTable()
+let showEditForm = (pIndex,tIndex) =>{
+    const editTeam = teams.find(team=> teams.indexOf(team)== tIndex)
+    const editPlayer = editTeam.find(player => editTeam.indexOf(player)== pIndex)
+    document.getElementById("editPlayer").value = editPlayer
+
+}

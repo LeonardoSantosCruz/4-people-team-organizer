@@ -35,7 +35,17 @@
                 <button type="button" onclick="clearList()" class="btn btn-outline-danger">Limpar lista</button>
             </nav>
         </div>
-        
+        <form  onsubmit="updatePlayerRow(); return false" style="display:none;" class="bg-dark p-3 mt-3 rounded" id="stockEditor">
+            
+            <div class="input-group mb-1">
+                <span class="input-group-text">Nome:</span>
+                <input type="text" class="form-control" placeholder="Nome" aria-label="Item" id="editPlayer"> 
+            </div>
+            
+            <button type="button" class="btn btn-light btn-sm" onclick="updatePlayerRow()" >Alterar</button>
+            
+            <button type="button" class="btn btn-light btn-sm" onclick="hidePlayerEditor()">Cancelar</button>
+        </form>
        
         <!-- seção para bloqueio da tela principal quando aberta tela de edição -->
         <section id="z-indexed" style="width: 100vw;height: 100vh;display:none;z-index: 2;position: absolute;"></section>
