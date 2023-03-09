@@ -1,4 +1,4 @@
-let teams = [["joão","pedro","Maria","Joana"],["josue","pedrosa","Mariana", "Joaquina"]]
+let teams = [[]]
 
 
 // console.log (teams[0][0])
@@ -62,11 +62,49 @@ let renderTable =()=>{
     })
     
 }
-renderTable()
+
 let showEditForm = (pIndex,tIndex) =>{
+    let editform = document.getElementById("editDiv")
+    editform.innerHTML = `<form  onsubmit="updatePlayerRow(); return false"  class="bg-dark p-3 mt-3 rounded" id="playerEditor">
+            
+            
+    <div class="input-group mb-1">
+        <span class="input-group-text">Nome:</span>
+        <input type="text" class="form-control" placeholder="Nome" aria-label="Item" id="editPlayer"> 
+    </div>
+    
+    <button type="button" class="btn btn-light btn-sm" onclick="updatePlayerRow(${pIndex},${tIndex})" >Alterar</button>
+    
+    <button type="button" class="btn btn-light btn-sm" onclick="hidePlayerEditor()">Cancelar</button>
+</form>`
+
     const editTeam = teams.find(team=> teams.indexOf(team)== tIndex)
     const editPlayer = editTeam.find(player => editTeam.indexOf(player)== pIndex)
     document.getElementById("editPlayer").value = editPlayer
-    document.getElementById('playerEditor').style.display="block"
+    // document.getElementById('playerEditor').style.display="block"
+    document.getElementById('editDiv').style.display="block"
+    document.getElementById('z-indexed').style.display="block"
+    // document.getElementById('playerEditor').style.position="absolute"
+    document.getElementById('editDiv').style.position="absolute"
+    // document.getElementById('playerEditor').style.zIndex="3"
+    document.getElementById('editDiv').style.zIndex="3"
+    document.getElementById('mainDiv').style.opacity = '0.3'
+    document.getElementById('footerDiv').style.opacity = '0.3'
 
 }
+let hidePlayerEditor= ()=>{
+    document.getElementById('mainDiv').style.opacity = '1'
+    document.getElementById('footerDiv').style.opacity = '1'
+    // document.getElementById('playerEditor').style.display="none"
+    document.getElementById('editDiv').style.display="none"
+    document.getElementById('z-indexed').style.display="none"
+    document.getElementById('footerDiv').style.display="block"
+}
+let updatePlayerRow= (pIndex,tIndex)=>{
+
+    let uptdatedPlayer = document.getElementById("editPlayer").value.toUpperCase()
+    teams[tIndex].splice(pIndex,1, uptdatedPlayer)
+    renderTable()
+    hidePlayerEditor()
+}
+// renderTable()
