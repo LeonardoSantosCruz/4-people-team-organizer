@@ -1,4 +1,5 @@
 let teams = [[]]
+// let teams = [["joão","pedro","Maria","Joana"],["josue","pedrosa","Mariana", "Joaquina"]]
 
 
 // console.log (teams[0][0])
@@ -107,4 +108,13 @@ let updatePlayerRow= (pIndex,tIndex)=>{
     renderTable()
     hidePlayerEditor()
 }
-// renderTable()
+
+let clearList = () =>{
+    let fullClear = confirm("TEM CERTEZA QUE DESEJA LIMPAR A LISTA?")
+    if(fullClear=== true){
+        teams = [[]]
+    }
+    
+    renderTable()
+}
+renderTable()
